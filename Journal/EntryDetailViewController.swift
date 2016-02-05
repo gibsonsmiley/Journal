@@ -8,20 +8,49 @@
 
 import UIKit
 
-class EntryDetailViewController: UIViewController {
+class EntryDetailViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var entryTextView: UITextView!
+    @IBAction func clearButtonPressed(sender: UIButton) {
+        titleTextField.text = ""
+        entryTextView.text = ""
+        
+    }
+    
+    
+    
+    @IBAction func entrySaveButtonPressed(sender: AnyObject) {
+        let entry = Entry(title: titleTextField.text, bodyText: entryTextView.text)
+        EntryController.sharedInstance.addEntry(entry)
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    var entry: Entry?
+    
+    func updateWith(entry: Entry) {
+        titleTextField.text = entry.title
+        entryTextView.text = entry.bodyText
+        
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        if let entry = entry {
+            updateWith(entry)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return true
+    }
 
+    
     /*
     // MARK: - Navigation
 
