@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Entry: Equatable, NSCoding {
+class Entry: Equatable {
     
     var timestamp = NSDate()
     var title: String?

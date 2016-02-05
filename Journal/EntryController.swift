@@ -12,7 +12,7 @@ class EntryController {
     
     static let sharedInstance = EntryController()
     
-    let entriesArray: [String]
+    var entriesArray: [Entry]
     
     init () {
         
@@ -24,8 +24,8 @@ class EntryController {
     }
     
 //                              ???????
-    func removeEntry (entry: Entry, atIndexPath: NSIndexPath) {
-        entriesArray.removeAtIndex(entry, atIndexPath)
+    func removeEntry (atIndexPath: NSIndexPath) {
+        entriesArray.removeAtIndex(atIndexPath.row)
     }
     
 }
