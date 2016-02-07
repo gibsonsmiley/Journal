@@ -37,6 +37,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="wGb-kO-9tB" kind="show" identifier="entryViewSegue" id="RO9-fZ-Qow"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -47,7 +50,7 @@
                     <navigationItem key="navigationItem" id="Uqd-NO-MIu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="aqb-gX-0yU">
                             <connections>
-                                <segue destination="wGb-kO-9tB" kind="show" id="CIM-3z-9SI"/>
+                                <segue destination="wGb-kO-9tB" kind="show" identifier="addEntrySegue" id="CIM-3z-9SI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -139,4 +142,7 @@
             <point key="canvasLocation" x="300" y="423"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="RO9-fZ-Qow"/>
+    </inferredMetricsTieBreakers>
 </document>

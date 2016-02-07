@@ -20,9 +20,13 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func entrySaveButtonPressed(sender: AnyObject) {
-        let entry = Entry(title: titleTextField.text, bodyText: entryTextView.text)
+        if let unwrappedTitleTextFieldText = titleTextField.text {
+            
+        
+        let entry = Entry(title: unwrappedTitleTextFieldText, bodyText: entryTextView.text)
         EntryController.sharedInstance.addEntry(entry)
         self.navigationController?.popToRootViewControllerAnimated(true)
+        }
     }
     
     var entry: Entry?
@@ -36,9 +40,11 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         if let entry = entry {
             updateWith(entry)
+            
         }
     }
 
@@ -47,6 +53,7 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        titleTextField.resignFirstResponder()
         return true
     }
 
