@@ -14,15 +14,10 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     @IBAction func clearButtonPressed(sender: UIButton) {
         titleTextField.text = ""
         entryTextView.text = ""
-        
     }
-    
-    
-    
     @IBAction func entrySaveButtonPressed(sender: AnyObject) {
         if let unwrappedTitleTextFieldText = titleTextField.text {
             
-        
         let entry = Entry(title: unwrappedTitleTextFieldText, bodyText: entryTextView.text)
         EntryController.sharedInstance.addEntry(entry)
         self.navigationController?.popToRootViewControllerAnimated(true)
@@ -40,8 +35,6 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
         if let entry = entry {
             updateWith(entry)
             

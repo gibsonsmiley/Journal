@@ -19,7 +19,6 @@ class Entry: Equatable {
     var bodyText: String
     
     init (title: String, bodyText: String) {
-
         self.title = title
         self.bodyText = bodyText
     }
